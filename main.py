@@ -35,6 +35,7 @@ def goToUrl(meetcode):
 
 def markAttendence(message,chatbutton,textarea,sendbutton):
     waitUntilVisibility(chatbutton)
+    time.sleep(5)
     driver.find_element_by_xpath(chatbutton).click()
     print(7)
 
@@ -50,7 +51,7 @@ def markAttendence(message,chatbutton,textarea,sendbutton):
     driver.find_element_by_xpath(chatbutton).click()
     print(10)
 
-def recognizeVoice():
+def recognizeVoice(name):
     p = pyaudio.PyAudio()
     for i in range(p.get_device_count()):
         dev = p.get_device_info_by_index(i)
@@ -75,7 +76,7 @@ def recognizeVoice():
             recognizedVoice = a['transcript'].lower()
             print(recognizedVoice)
 
-            if 'chandan' in recognizedVoice:
+            if name in recognizedVoice:
                 markAttendence(message,chatbutton,textarea,sendbutton)
             else:
                 pass
@@ -85,7 +86,7 @@ def recognizeVoice():
 meetcode = str(input("Input Meet Code >>  ")) #input from user
 
 
-
+name = str(input('Your Name>> ')).lower()
 message = str(input("Message >>  "))
 
 
