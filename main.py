@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import time
 from path import *
+from gui import *
 import speech_recognition as sr
 import pyaudio
 
@@ -77,18 +78,24 @@ def recognizeVoice(name):
             recognizedVoice = a['transcript'].lower()
             print(recognizedVoice)
 
-            if name in recognizedVoice:
+            if keyword in recognizedVoice:
                 markAttendence(message,chatbutton,textarea,sendbutton)
             else:
                 pass
 
 
+print("Meet Code >> ",meetcode.get())
+print("Message >> ",message.get())
+print("Keyword >> ",keyword.get())
+print("Timegap >> ",timeGap.get())
 
-meetcode = str(input("Input Meet Code >>  ")) #input from user
-
-
-name = str(input('Your Name>> ')).lower()
-message = str(input("Message >>  "))
+meetcode= meetcode.get()
+message = message.get()
+keyword = keyword.get().lower()
+timeGap = timeGap.get()
+#meetcode = str(input("Input Meet Code >>  ")) #input from user
+#keyword = str(input('Keyword>> ')).lower()
+#message = str(input("Message >>  "))
 
 
 options = webdriver.ChromeOptions()

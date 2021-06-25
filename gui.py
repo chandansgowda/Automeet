@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import main
 
 window = Tk()
 
@@ -42,10 +43,11 @@ def submit(meetcode,message,keyword,timeGap):
     message = message.get()
     keyword = keyword.get()
     timeGap = timeGap.get()
-    print(timeGap)
+    exec(open('main.py').read())
 
-btn = Button(window, text="SUBMIT", font=("Arial Bold", 10), bg="green", fg="White",width=14,command=submit(meetcode,message,keyword,timeGap))
 
-btn.grid(column=1, row=5)
+submit_btn = Button(window, text="SUBMIT", font=("Arial Bold", 10), bg="green", fg="White",width=14,command=lambda: submit(meetcode,message,keyword,timeGap))
+
+submit_btn.grid(column=1, row=5)
 
 window.mainloop()
