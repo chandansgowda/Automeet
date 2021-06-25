@@ -48,6 +48,7 @@ def markAttendence(message,chatbutton,textarea,sendbutton):
     print(9)
 
     waitUntilVisibility(chatbutton)
+    time.sleep(2)
     driver.find_element_by_xpath(chatbutton).click()
     print(10)
 
@@ -107,7 +108,7 @@ join(joinbutton)
 time.sleep(5)
 markAttendence(message,chatbutton,textarea,sendbutton)
 time.sleep(5)
-recognizeVoice()
+recognizeVoice(name)
 
 
 
