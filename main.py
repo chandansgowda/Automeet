@@ -88,6 +88,7 @@ print("Meet Code >> ",meetcode.get())
 print("Message >> ",message.get())
 print("Keyword >> ",keyword.get())
 print("Timegap >> ",timeGap.get())
+print("Selected >> ",selected.get())
 
 meetcode= meetcode.get()
 message = message.get()
